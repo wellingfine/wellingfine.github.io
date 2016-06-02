@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Upload Button</title>
+	<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<style type="text/css">
+form{
+	display: none;
+}
+label{
+	border: 1px solid #999;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+iframe{
+	display: none;
+}
+</style>
+	
+</head>
+<body>
+<iframe src="" name="hidden-iframe" ></iframe>
+<form action="" enctype="multi-part">
+	<input id="upload-input" type="file" name="file">
+</form>
+
+<label for="upload-input">
+	<i class="fa fa-cloud-upload" aria-hidden="true"></i> ChooseFiles
+</label>
+</body>
+</html>
