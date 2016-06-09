@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SeaJs测试</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript" src="http://seajs.github.io/examples/sea-modules/seajs/seajs/2.1.1/sea.js"></script>
+<script type="text/javascript">
+	seajs.config({
+		base: "./module/",
+		alias: {
+			// "jquery": "jquery/jquery/1.10.1/jquery.js"
+		}
+	})
+	seajs.use("./module/main")
+</script>
+<div>Open Your Console.</div>
+</body>
+</html>
