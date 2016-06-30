@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #aaa; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 86%; margin-right: .5%; }
+      form button { width: 13%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0 0 40px 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      #messages li.private{background:rgb(168,0,32);color: #fff;}
+      #messages li.sys{color:#fff;background: rgb(19,149,41);}
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+var name =prompt('输入你的名字：')
+
+var socket = io();
+
+socket.on('connect',function(){
+	socket.emit('set name',name,function(suc){
+		if(suc){
+			$('#messages').append($('<li class="sys">').text('登录成功，你的名字：'+name));
+		}else{
+			$('#messages').append($('<li class="sys">').text('登录失败，已有用户：'+name));
+			name =prompt('输入你的名字：')
+		}
+	})
+	
+})
+$('form').submit(function(){
+	socket.emit('chat message', $('#m').val());
+	$('#m').val('');
+	return false;
+});
+socket.on('chat message', function(msg){
+	$('#messages').append($('<li>').text(msg));
+});
+socket.on('private message',function(msg){
+	$('#messages').append($('<li class="private">').text(msg))
+})
+</script>
+
+</body>
+</html>
