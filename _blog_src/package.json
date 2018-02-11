@@ -6,7 +6,7 @@
     "version": "3.5.0"
   },
   "scripts":{
-    "build":"hexo publish",
+    "build":"hexo clean & hexo g",
     "run":"hexo server -p5000 & hexo g -dw"
   },
   "dependencies": {
