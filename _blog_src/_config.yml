@@ -6,8 +6,8 @@
 title: Hexo
 subtitle:
 description:
-author: John Doe
-language:
+author: welling
+language: cn,en
 timezone:
 
 # URL
@@ -19,7 +19,7 @@ permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: ../
+public_dir: ../blog/
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
