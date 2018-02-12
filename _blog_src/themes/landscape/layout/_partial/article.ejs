@@ -33,6 +33,9 @@
   <% if (!index){ %>
     <%- partial('post/nav') %>
   <% } %>
+  <% if (!index){ %>
+    <%- partial('comment') %>
+  <% } %>
 </article>
 
 <% if (!index && post.comments && config.disqus_shortname){ %>
