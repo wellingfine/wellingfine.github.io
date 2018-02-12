@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tinyfun</title>
+  <title>继续折腾Hexo | tinyfun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tinyfun">
-<meta property="og:url" content="http://wellingfine.github.io/blog/../blog/index.html">
+  <meta name="description" content="昨天基本搭好了框架，不过还是有些问题的  挂图片的3种方式 默认：使用 hexo new 在_posts下创建同名目录，放置图片资源。优点是可以用相对路径直接写；缺点是目录变得很多，不好管理 全局：在站点根路径放置图片。缺点是hexo server不支持显示 主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整  主题结构123456.├── _confi">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="继续折腾Hexo">
+<meta property="og:url" content="http://wellingfine.github.io/blog/201802/12-hexo/hexo-more/index.html">
 <meta property="og:site_name" content="tinyfun">
+<meta property="og:description" content="昨天基本搭好了框架，不过还是有些问题的  挂图片的3种方式 默认：使用 hexo new 在_posts下创建同名目录，放置图片资源。优点是可以用相对路径直接写；缺点是目录变得很多，不好管理 全局：在站点根路径放置图片。缺点是hexo server不支持显示 主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整  主题结构123456.├── _confi">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-12T08:33:40.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tinyfun">
+<meta name="twitter:title" content="继续折腾Hexo">
+<meta name="twitter:description" content="昨天基本搭好了框架，不过还是有些问题的  挂图片的3种方式 默认：使用 hexo new 在_posts下创建同名目录，放置图片资源。优点是可以用相对路径直接写；缺点是目录变得很多，不好管理 全局：在站点根路径放置图片。缺点是hexo server不支持显示 主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整  主题结构123456.├── _confi">
   
   
     <link rel="icon" href="/favicon.png">
@@ -58,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hexo/hexo-more" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hexo/hexo-more" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/201802/12-hexo/hexo-more/" class="article-date">
   <time datetime="2018-02-12T04:00:00.000Z" itemprop="datePublished">2018-02-12</time>
@@ -73,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/201802/12-hexo/hexo-more/">继续折腾Hexo</a>
+    <h1 class="article-title" itemprop="name">
+      继续折腾Hexo
     </h1>
   
 
@@ -115,77 +118,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hexo/deploy-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/201802/10-hexo/deploy-hexo/" class="article-date">
-  <time datetime="2018-02-09T16:00:00.000Z" itemprop="datePublished">2018-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/201802/10-hexo/deploy-hexo/">简单上手Hexo</a>
-    </h1>
+    <a href="/blog/201802/10-hexo/deploy-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">简单上手Hexo</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>开博了！</p>
-<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>安装环境之前一直用sudo npm装的依赖，导致 /usr/local/lib/node_modules/下的权限一片混乱，于是直接删掉hexo依赖，再跑一下上面的安装命令就ok了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo  <span class="comment"># 安装hexo</span></span><br><span class="line">npm i hexo server <span class="comment">#安装本地博客svr</span></span><br><span class="line">hexo g -dw <span class="comment"># hexo generate --deploy --watch</span></span><br></pre></td></tr></table></figure>
-<p>-dw 参数适合边写边看效果，只生成变动的html</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//package.json 加入 方便的命令</span></span><br><span class="line"><span class="string">"scripts"</span>:&#123;</span><br><span class="line">    <span class="string">"build"</span>:<span class="string">"hexo clean &amp; hexo g"</span>,</span><br><span class="line">    <span class="string">"run"</span>:<span class="string">"hexo server -p5000 &amp; hexo g -dw"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>_config.yaml 大部分配置一眼能看出具体的功能，这里对生成的文件做了下重定向子目录，根目录预留给其它功能使用；改了下文件标题，及url路径规则</p>
-<p>默认有三个布局，draft page post ，暂时没看出有什么区别，默认配置没多大差别。draft 可以使得文件不会发布，暂作保存 hexo publish后自动移到 <strong>_posts</strong></p>
-<h2 id="引用资源"><a href="#引用资源" class="headerlink" title="引用资源"></a>引用资源</h2><p>总体来说，比较麻烦</p>
-<ul>
-<li>打开 _config.yml 的 post_asset_folder: true</li>
-<li>手动创建同名文件，或运行 hexo new [layout] title</li>
-</ul>
-<p>每个post 对应一个资源目录，必须使用 hexo new [layout] title 来新建 post。如果显示不了，最好再重启下本地服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img hexo-logo.svg hexo&apos;s logo %&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后想了想，还是用根目录的资源吧 <img src="/assets/imgs/hexo-logo.svg" alt="global assets dir"></p>
-<p>发现也有缺点，本地运行没办法显示图片，hexo的 server 不支持，囧</p>
-<ul>
-<li>图片大小设置？</li>
-<li>图片重用问题？</li>
-</ul>
-<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><ul>
-<li>默认的 js 用到了google的cdn，墙内一些js运行不了</li>
-<li>更换主题/定制主题</li>
-<li>增加评论插件</li>
-<li>文章标题目录插件</li>
-<li>统计</li>
-<li>修订记录插件</li>
-<li>全部文章都写到 source/_posts/ ? 日累月累，git肯定会乱，所以应该会有分类</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://wellingfine.github.io/blog/201802/10-hexo/deploy-hexo/" data-id="cjdjynzxr0001l7bye4rs0ssn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
