@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>继续折腾Hexo | tinyfun</title>
+  <title>在vultr上布署 l2tp-ipsec vpn | tinyfun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="昨天基本搭好了框架，不过还是有些问题的  挂图片的3种方式 默认：使用 hexo new 在_posts下创建同名目录，放置图片资源。优点是可以用相对路径直接写；缺点是目录变得很多，不好管理 全局：在站点根路径放置图片。缺点是hexo server不支持显示 主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整  主题结构123456.├── _confi">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="Old time荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇文章搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。 比起以前的l2tp，多了一个密钥填写项，看回以前那个DigitalOcean的文章 状态已经是 Deprecated 了，虽然好过一段时间，但经常会被重置连接，同样是vu">
+<meta name="keywords" content="vps">
 <meta property="og:type" content="article">
-<meta property="og:title" content="继续折腾Hexo">
-<meta property="og:url" content="http://wellingfine.github.io/blog/201802/12-hexo/hexo-more/index.html">
+<meta property="og:title" content="在vultr上布署 l2tp-ipsec vpn">
+<meta property="og:url" content="http://wellingfine.github.io/blog/201803/05-vps/l2tp-ipsec/index.html">
 <meta property="og:site_name" content="tinyfun">
-<meta property="og:description" content="昨天基本搭好了框架，不过还是有些问题的  挂图片的3种方式 默认：使用 hexo new 在_posts下创建同名目录，放置图片资源。优点是可以用相对路径直接写；缺点是目录变得很多，不好管理 全局：在站点根路径放置图片。缺点是hexo server不支持显示 主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整  主题结构123456.├── _confi">
+<meta property="og:description" content="Old time荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇文章搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。 比起以前的l2tp，多了一个密钥填写项，看回以前那个DigitalOcean的文章 状态已经是 Deprecated 了，虽然好过一段时间，但经常会被重置连接，同样是vu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-12T08:33:40.368Z">
+<meta property="og:updated_time" content="2018-03-19T13:35:19.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="继续折腾Hexo">
-<meta name="twitter:description" content="昨天基本搭好了框架，不过还是有些问题的  挂图片的3种方式 默认：使用 hexo new 在_posts下创建同名目录，放置图片资源。优点是可以用相对路径直接写；缺点是目录变得很多，不好管理 全局：在站点根路径放置图片。缺点是hexo server不支持显示 主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整  主题结构123456.├── _confi">
+<meta name="twitter:title" content="在vultr上布署 l2tp-ipsec vpn">
+<meta name="twitter:description" content="Old time荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇文章搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。 比起以前的l2tp，多了一个密钥填写项，看回以前那个DigitalOcean的文章 状态已经是 Deprecated 了，虽然好过一段时间，但经常会被重置连接，同样是vu">
   
   
     <link rel="icon" href="/favicon.png">
@@ -89,10 +89,10 @@ var _mtac = {};
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hexo/hexo-more" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-vps/l2tp-ipsec" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/201802/12-hexo/hexo-more/" class="article-date">
-  <time datetime="2018-02-12T04:00:00.000Z" itemprop="datePublished">2018-02-12</time>
+    <a href="/blog/201803/05-vps/l2tp-ipsec/" class="article-date">
+  <time datetime="2018-03-04T16:00:00.000Z" itemprop="datePublished">2018-03-05</time>
 </a>
     
   </div>
@@ -103,7 +103,7 @@ var _mtac = {};
         
   
     <h1 class="article-title" itemprop="name">
-      继续折腾Hexo
+      在vultr上布署 l2tp-ipsec vpn
     </h1>
   
 
@@ -111,35 +111,30 @@ var _mtac = {};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>昨天基本搭好了框架，不过还是有些问题的</p>
-<hr>
-<h2 id="挂图片的3种方式"><a href="#挂图片的3种方式" class="headerlink" title="挂图片的3种方式"></a>挂图片的3种方式</h2><ul>
-<li>默认：使用 <code>hexo new</code> 在_posts下创建同名目录，放置图片资源。<strong>优点</strong>是可以用相对路径直接写；<strong>缺点</strong>是目录变得很多，不好管理</li>
-<li>全局：在站点根路径放置图片。<strong>缺点</strong>是<code>hexo server</code>不支持显示</li>
-<li>主题：在主题中加入资源，直接markdown 引用。切换主题会比较头疼，下面顺便看下主题怎么整</li>
-</ul>
-<h2 id="主题结构"><a href="#主题结构" class="headerlink" title="主题结构"></a>主题结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml #配置</span><br><span class="line">├── languages   #国际化</span><br><span class="line">├── layout      #布局</span><br><span class="line">├── scripts     #通用的脚本</span><br><span class="line">└── source      #前端资源,图片,js,css</span><br></pre></td></tr></table></figure>
-<p>看一眼基本就懂了，要注意的是 scripts 是插件用的脚本，只会在 <code>hexo generate</code> 时运行。官方文档的解释是 「在启动时就会自动载入」</p>
-<h2 id="上一次的小问题"><a href="#上一次的小问题" class="headerlink" title="上一次的小问题"></a>上一次的小问题</h2><ul>
-<li>google被墙资源<br>改模板使用 <a href="https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview#jQuery_Releases_on_the_CDN_0" title="微软cdn列表" target="_blank" rel="noopener">微软</a> 的 <a href="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" title="js" target="_blank" rel="noopener">http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js</a><br>找到 <code>themes/landscape/layout/_partial/after-footer.ejs</code> 替换里面google的连接<br>还有一个font也用的google，没替换，字体什么的，不太重要</li>
-<li>替换 <em>mta.qq.com</em> 统计<br>找到 <code>themes/landscape/layout/_partial/google-analytics.ejs</code>，然后去mta申请一个h5应用</li>
-<li>_posts文件管理<ol>
-<li>可以在_posts下面任意创建目录，生成后只会按Front-Matter的日期做归类</li>
-<li>路径会略有不同，最好是做好规划，不让路径随便变化</li>
-<li>page 和 post 两种 layout 不一样的地方是，page是独立的一个页面，不会显示在文章列表里面，所以可以在导航栏指定对应的地址进行跳转，例如，专门制作一个about.md</li>
-</ol>
+        <h2 id="Old-time"><a href="#Old-time" class="headerlink" title="Old time"></a>Old time</h2><p>荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇<a href="https://segmentfault.com/a/1190000006125737" target="_blank" rel="noopener">文章</a>搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。</p>
+<p>比起以前的l2tp，多了一个密钥填写项，看回以前那个<a href="https://www.digitalocean.com/community/tutorials/how-to-setup-your-own-vpn-with-pptp" target="_blank" rel="noopener">DigitalOcean的文章</a> 状态已经是 <em>Deprecated</em> 了，虽然好过一段时间，但经常会被重置连接，同样是vultr的东京主机，稳定性一般。</p>
+<h2 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h2><ol>
+<li><p>/etc/ppp/options.xl2tpd</p>
+<p> re-mschap-v2，这一行由于用了 vi 来编辑，没先打 i 导致 require 前面几个字母缺失了，发现日志有错，于是google一下。居然也有同道中人，世界真小，错都错得一毛一样</p>
 </li>
-<li>插件<br>评论插件，目录插件，文章修订，暂没找到轮子</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文档太简单了点</p>
+<li><p>xl2tpd 下载</p>
+<p> 由于yum没有源，所以需要手动下载一下。原文直接就给了链接，觉得搞个新版本可能会好点，就上 <a href="http://centos.pkgs.org" target="_blank" rel="noopener">centos.pkgs.org</a> 搜xl2tpd，找到对应的系统版本下载装上</p>
+</li>
+<li><p>日志</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /var/log</span><br><span class="line">tailf messages</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来个重启脚本，方便以后定时重启</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipsec setup restart</span><br><span class="line">service xl2tpd restart</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wellingfine.github.io/blog/201802/12-hexo/hexo-more/" data-id="cjdjzr2260002b4bygwpy6nfk" class="article-share-link">Share</a>
+      <a data-url="http://wellingfine.github.io/blog/201803/05-vps/l2tp-ipsec/" data-id="cjeya0v9500007mbyhbgr2vne" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vps/">vps</a></li></ul>
 
     </footer>
   </div>
@@ -147,19 +142,10 @@ var _mtac = {};
     
 <nav id="article-nav">
   
-    <a href="/blog/201803/05-vps/l2tp-ipsec/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          在vultr上布署 l2tp-ipsec vpn
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/201802/10-hexo/deploy-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/201802/12-hexo/hexo-more/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">简单上手Hexo</div>
+      <div class="article-nav-title">继续折腾Hexo</div>
     </a>
   
 </nav>

@@ -86,6 +86,61 @@ var _mtac = {};
       <div class="outer">
         <section id="main">
   
+    <article id="post-vps/l2tp-ipsec" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/201803/05-vps/l2tp-ipsec/" class="article-date">
+  <time datetime="2018-03-04T16:00:00.000Z" itemprop="datePublished">2018-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/201803/05-vps/l2tp-ipsec/">在vultr上布署 l2tp-ipsec vpn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Old-time"><a href="#Old-time" class="headerlink" title="Old time"></a>Old time</h2><p>荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇<a href="https://segmentfault.com/a/1190000006125737" target="_blank" rel="noopener">文章</a>搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。</p>
+<p>比起以前的l2tp，多了一个密钥填写项，看回以前那个<a href="https://www.digitalocean.com/community/tutorials/how-to-setup-your-own-vpn-with-pptp" target="_blank" rel="noopener">DigitalOcean的文章</a> 状态已经是 <em>Deprecated</em> 了，虽然好过一段时间，但经常会被重置连接，同样是vultr的东京主机，稳定性一般。</p>
+<h2 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h2><ol>
+<li><p>/etc/ppp/options.xl2tpd</p>
+<p> re-mschap-v2，这一行由于用了 vi 来编辑，没先打 i 导致 require 前面几个字母缺失了，发现日志有错，于是google一下。居然也有同道中人，世界真小，错都错得一毛一样</p>
+</li>
+<li><p>xl2tpd 下载</p>
+<p> 由于yum没有源，所以需要手动下载一下。原文直接就给了链接，觉得搞个新版本可能会好点，就上 <a href="http://centos.pkgs.org" target="_blank" rel="noopener">centos.pkgs.org</a> 搜xl2tpd，找到对应的系统版本下载装上</p>
+</li>
+<li><p>日志</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /var/log</span><br><span class="line">tailf messages</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来个重启脚本，方便以后定时重启</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipsec setup restart</span><br><span class="line">service xl2tpd restart</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wellingfine.github.io/blog/201803/05-vps/l2tp-ipsec/" data-id="cjeya0v9500007mbyhbgr2vne" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vps/">vps</a></li></ul>
+
+    </footer>
+  </div>
+  
+  
+</article>
+
+
+  
     <article id="post-hexo/hexo-more" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/201802/12-hexo/hexo-more/" class="article-date">
@@ -229,6 +284,10 @@ var _mtac = {};
       <ul>
         
           <li>
+            <a href="/blog/201803/05-vps/l2tp-ipsec/">在vultr上布署 l2tp-ipsec vpn</a>
+          </li>
+        
+          <li>
             <a href="/blog/201802/12-hexo/hexo-more/">继续折腾Hexo</a>
           </li>
         
@@ -245,7 +304,7 @@ var _mtac = {};
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vps/">vps</a></li></ul>
     </div>
   </div>
 
@@ -255,7 +314,7 @@ var _mtac = {};
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/02/">二月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/02/">二月 2018</a></li></ul>
     </div>
   </div>
 
