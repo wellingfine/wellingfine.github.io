@@ -37,7 +37,7 @@ tags: vps
 
 虽然使用这个l2tp使用起来很方便，不用装任何软件，手机 pc mac 都能直接使用。win10看了下是有自带的智能切换流量的功能，不过mac和手机，就少了这个原生支持。
 
-[global assets dir](/assets/imgs/mi_route.png)
+[miroute](/assets/imgs/mi_route.png)
 
 小米路由支持l2tp的链接，神奇的是它没有共享密钥的设定，一开始还以为不行。鬼使神差的试了下，居然能连上，我就开始怀疑是不是根本没有用到ipsec。
 

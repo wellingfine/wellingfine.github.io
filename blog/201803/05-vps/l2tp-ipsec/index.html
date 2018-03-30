@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="tinyfun">
 <meta property="og:description" content="Old time荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇文章搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。 比起以前的l2tp，多了一个密钥填写项，看回以前那个DigitalOcean的文章 状态已经是 Deprecated 了，虽然好过一段时间，但经常会被重置连接，同样是vu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-19T13:35:19.921Z">
+<meta property="og:updated_time" content="2018-03-30T16:40:42.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在vultr上布署 l2tp-ipsec vpn">
 <meta name="twitter:description" content="Old time荒废了半年的vpn，终于在前两天重新搞个东京的vps，跟着这篇文章搭了起来，居然好了，mac ipad android都可以连上，终于再次连接世界。速度体验了下还比较快，流畅看youtube高清视频，也稳定很多。 比起以前的l2tp，多了一个密钥填写项，看回以前那个DigitalOcean的文章 状态已经是 Deprecated 了，虽然好过一段时间，但经常会被重置连接，同样是vu">
@@ -127,11 +127,15 @@ var _mtac = {};
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ipsec setup restart</span><br><span class="line">service xl2tpd restart</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="小米路由"><a href="#小米路由" class="headerlink" title="小米路由"></a>小米路由</h2><p>虽然使用这个l2tp使用起来很方便，不用装任何软件，手机 pc mac 都能直接使用。win10看了下是有自带的智能切换流量的功能，不过mac和手机，就少了这个原生支持。</p>
+<p><a href="/assets/imgs/mi_route.png">miroute</a></p>
+<p>小米路由支持l2tp的链接，神奇的是它没有共享密钥的设定，一开始还以为不行。鬼使神差的试了下，居然能连上，我就开始怀疑是不是根本没有用到ipsec。</p>
+<p>验证了下，发现之前设置过vpn并填了共享密钥的设备能连上vpn，如果未在设备上设置过密钥就不行。未太明白原理，倒也是稳定可用，足矣。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://wellingfine.github.io/blog/201803/05-vps/l2tp-ipsec/" data-id="cjeya0v9500007mbyhbgr2vne" class="article-share-link">Share</a>
+      <a data-url="http://wellingfine.github.io/blog/201803/05-vps/l2tp-ipsec/" data-id="cjfe6dp0k0001mcby373o510x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vps/">vps</a></li></ul>
