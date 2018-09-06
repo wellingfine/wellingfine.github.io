@@ -13,13 +13,13 @@ timezone: Asia/Shanghai
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wellingfine.github.io/blog/
-root: /
+root: /blog/
 permalink: :year:month/:day-:title/
 permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: ../blog/
+public_dir: ../blog/ ##不能改，build的时候会清空这个目录，如果在主目录，就会全清空，git文件也不见！！！
 tag_dir: tags
 archive_dir: archives
 category_dir: categories

@@ -21,7 +21,7 @@ $ hexo new post title
 ```
 ![图片名字](title/xx.png)
 ```
-![试下asset_folder](hexo3/cool.png)
+![试下asset_folder](./hexo3/cool.png)
 
 
 ## 全局图片
@@ -41,7 +41,7 @@ blog hexo生成的html相关文件
 ![测试全局图片](/assets/imgs/smile.png)
 
 
-缺点是不能在vscode 里实时预览，只能用hexo server 本地跑起来看
+缺点是不能在vscode 里实时预览，只能用hexo server 本地跑起来看(hexo server 有点问题，搭了个koa-static替代)
 
 ## 主题图片
 这个不怎么推荐，原理是把图片放到主题的目录下面，因为生成主题的时候会生成相对应的主题文件。但是当要换主题的时候就比较麻烦
