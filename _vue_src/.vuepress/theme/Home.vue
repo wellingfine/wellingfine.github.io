@@ -6,7 +6,7 @@
         :src="$withBase(data.heroImage)"
         alt="hero"
       >
-
+		xx
       <h1>{{ data.heroText || $title || 'Hello' }}</h1>
 
       <p class="description">

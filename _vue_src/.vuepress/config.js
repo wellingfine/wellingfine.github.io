@@ -1,6 +1,7 @@
 module.exports = {
-	title: 'Hello VuePress',
-	description: 'Just playing around',
+	title: 'Tiny fun',
+	description: 'Make tiny fun',
+	base:'/blog/',
 	port:5000,
 	configureWebpack: {
 		resolve: {
@@ -9,9 +10,6 @@ module.exports = {
 	dest:'../blog/',
 	themeConfig: {
 		sidebar: [
-			'/',
-			'/page-a',
-			['/page-b', 'Explicit link text']
 		]
 	}
 }

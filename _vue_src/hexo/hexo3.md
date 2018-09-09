@@ -21,7 +21,7 @@ $ hexo new post title
 ```
 ![图片名字](title/xx.png)
 ```
-![试下asset_folder](./hexo3/cool.png)
+![试下asset_folder](../images/cool.png)
 
 
 ## 全局图片
