@@ -11,14 +11,30 @@
       <p class="description">
         {{ data.tagline || $description || 'Welcome to your VuePress site' }}
       </p>
+
+      <p
+        class="action"
+        v-if="data.actionText && data.actionLink"
+      >
+        <NavLink
+          class="action-button"
+          :item="actionLink"
+        />
+      </p>
     </div>
 
-    <div>
-		<div v-for="(item,index) in ps" style="margin:30px 0">
-			<div>{{item.frontmatter.date| niceDate}}</div>
-			<nav-link :to="item.path" :item="{link:item.path,text:item.title}">{{item.title}}</nav-link>
-		</div>
-	</div>
+    <div
+      class="features"
+      v-if="data.features && data.features.length"
+    >
+      <div
+        class="feature"
+        v-for="feature in data.features"
+      >
+        <h2>{{ feature.title }}</h2>
+        <p>{{ feature.details }}</p>
+      </div>
+    </div>
 
     <Content custom/>
 
@@ -35,54 +51,20 @@
 import NavLink from './NavLink.vue'
 
 export default {
-	components: { NavLink },
-	filters:{
-		niceDate:function(v){
-			if(!v)return ''
-			return v.split('T')[0]
-		}
-	},
-	data(){
-		return {
-			ps:[]
-		}
-	},
-	computed: {
-		data () {
-			return this.$page.frontmatter
-		},
+  components: { NavLink },
 
-		actionLink () {
-			return {
-				link: this.data.actionLink,
-				text: this.data.actionText
-			}
-		}
-	},
-	mounted(){
-		//最新排序
-		var pages=this.$site.pages
+  computed: {
+    data () {
+      return this.$page.frontmatter
+    },
 
-		//TODO 把日期不正确的过滤掉 
-		
-	
-		pages.sort(function(a,b){
-			if(!a.frontmatter.date)return 1
-			if(!b.frontmatter.date)return 1
-
-			var ad=new Date(a.frontmatter.date).getTime()
-			var bd=new Date(b.frontmatter.date).getTime()
-
-			return bd-ad
-		})
-		
-		var count=this.data.pageCount||5
-		this.ps=pages.slice(0,count)
-	
-		//TODO 手动置顶文章
-
-		console.log('this.$site',this.$site)
-	},
+    actionLink () {
+      return {
+        link: this.data.actionLink,
+        text: this.data.actionText
+      }
+    }
+  }
 }
 </script>
 
