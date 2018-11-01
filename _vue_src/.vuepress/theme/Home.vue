@@ -64,7 +64,12 @@ export default {
 		var pages=this.$site.pages
 
 		//TODO 把日期不正确的过滤掉 
-		
+		pages=pages.filter((item)=>{
+			if(item.frontmatter.draft=='yes'){
+				return false
+			}
+			return true
+		})
 	
 		pages.sort(function(a,b){
 			if(!a.frontmatter.date)return 1
@@ -83,6 +88,7 @@ export default {
 
 		console.log('this.$site',this.$site)
 	},
+	
 }
 </script>
 

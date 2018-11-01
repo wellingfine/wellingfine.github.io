@@ -11,5 +11,6 @@ module.exports = {
 	themeConfig: {
 		sidebar: [
 		]
-	}
+	},
+	permalink: '/:year/:month/:slug',
 }
